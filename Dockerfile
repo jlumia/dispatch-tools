@@ -48,4 +48,4 @@ USER appuser
 EXPOSE 4200 
  
 # Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:4200", "--workers", "3", "aviation.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:4200", "--workers", "3", "app.wsgi:application"]
