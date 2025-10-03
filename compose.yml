@@ -1,0 +1,35 @@
+services:
+  db:
+    image: ghcr.io/baosystems/postgis:15-3.4
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgis-data:/var/lib/postgresql
+    env_file: '.env'
+
+
+
+
+  # django-web:
+  #   build: .
+  #   container_name: django-docker
+  #   ports:
+  #     - '4200:4200'
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+  #     DEBUG: ${DEBUG}
+  #     DJANGO_LOGLEVEL: ${DJANGO_LOGLEVEL}
+  #     DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+  #     DATABASE_ENGINE: ${DATABASE_ENGINE}
+  #     DATABASE_NAME: ${DATABASE_NAME}
+  #     DATABASE_USERNAME: ${DATABASE_USERNAME}
+
+  #     DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+  #     DATABASE_HOST: ${DATABASE_HOST}
+  #     DATABASE_PORT: ${DATABASE_PORT}
+  #   env_file:
+  #     - .env
+volumes:
+  postgis-data:
